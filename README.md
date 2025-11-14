@@ -1,3 +1,18 @@
+Temp fork of /justin025/onthespot/ to help troubleshoot compilation issues.
+
+To build a copy of this app on your local Mac: 
+
+1. Click the green "<> Code" button and download the zip. Extract this somewhere.
+<img src="images/download%20repo.jpg" alt="Click to download a zip of this repo" width="350px">
+
+2. Right-click the folder called onthespot-patched wherever you extracted it. Then click Services > New Terminal at Folder
+<img src="images/new%20terminal%20at%20folder.jpg" alt="Right click the folder, then go to Services and new Terminal at Folder to open this folder in terminal." width="350px">
+
+3. Drag the file build_mac.sh found in /onthespot-patched/scripts/ into your terminal window, then hit enter.
+
+4. You should have a DMG of your app you can open in /onthespot-patched/dist
+
+   
 <div align="center">
 
 <div style="text-align: center;">
