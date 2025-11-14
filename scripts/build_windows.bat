@@ -30,8 +30,19 @@ pip install -r requirements.txt
 echo =^> Downloading FFmpeg binary...
 mkdir build
 curl -L -o build\ffmpeg.zip https://github.com/GyanD/codexffmpeg/releases/download/7.1/ffmpeg-7.1-essentials_build.zip
-powershell -Command "Expand-Archive -Path build\ffmpeg.zip -DestinationPath build\ffmpeg"
+if %ERRORLEVEL% NEQ 0 (
+    echo ERROR: Failed to download FFmpeg
+    pause
+    exit /b 1
+)
 
+echo =^> Extracting FFmpeg...
+powershell -ExecutionPolicy Bypass -Command "Expand-Archive -Path build\ffmpeg.zip -DestinationPath build\ffmpeg -Force"
+if %ERRORLEVEL% NEQ 0 (
+    echo ERROR: Failed to extract FFmpeg
+    pause
+    exit /b 1
+)
 
 echo =^> Running PyInstaller to create .exe package...
 pyinstaller --onefile --noconsole --noconfirm ^
@@ -53,3 +64,4 @@ rmdir /s /q build __pycache__ ffbin_win venvwin
 
 
 echo =^> Done! Executable available as 'dist/OnTheSpot.exe'.
+pause
